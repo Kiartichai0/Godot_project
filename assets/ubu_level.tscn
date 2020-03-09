@@ -1,0 +1,394 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Space_Level_Objects/Space_Level_Mesh_Lib.tres" type="MeshLibrary" id=2]
+[ext_resource path="res://assets/Ruin_Level_Objects/Ruin_Level_Mesh_Lib.tres" type="MeshLibrary" id=3]
+[ext_resource path="res://Target.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Space_Level_Objects/Crate_Rigid_Body.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Ammo_Pickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Health_Pickup.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Environment" id=1]
+
+[node name="Test_level" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.0102403, -2.98023e-008, 0.999948, -4.47035e-008, 1, 0, -0.999948, 5.96046e-008, 0.0102402, -20.0884, 0, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.879791, 2.07786e-008, -0.47536, 0.47536, -3.84569e-008, 0.879791, 0, -1, -4.37114e-008, 0, 100, 0 )
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( 0.988362, -0.107565, -0.107565, 0.151643, 0.752643, 0.640728, 0.0120382, -0.649583, 0.760196, 0, 100, 0 )
+
+[node name="DirectionalLight3" type="DirectionalLight" parent="."]
+transform = Transform( 0.477011, -0.273247, 0.835342, -0.861287, -0.334636, 0.382365, 0.175056, -0.901862, -0.394969, 0, 100, 0 )
+
+[node name="wall_and_floor" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="floor" type="GridMap" parent="wall_and_floor"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10.5, 8, 0, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 65535, 65535, 1611661314 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 1, 0, 0 )
+}
+
+[node name="floor2" type="GridMap" parent="wall_and_floor"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10.5, 8, 0, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 65530, 2, 655362, 65525, 4, 1074397186, 65530, 4, 1441794, 65525, 65530, 655362, 65530, 65530, 1441794, 65530, 65533, 655362, 65525, 65535, 655362, 65530, 65535, 1441794, 65535, 65535, 1048578 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 1, 0, 0 )
+}
+
+[node name="wall" type="GridMap" parent="wall_and_floor"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 1, -12, 35, 0 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="wall2" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -10, 0, -8.74228e-008, 0, 10, 0, 8.74228e-007, 0, -1, 7, 35, 0 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="wall3" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 1, 0, 10, 0, -10, 0, -4.37114e-008, -3, 35, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="wall4" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 1, 0, 10, 0, -10, 0, -4.37114e-008, -3, 35, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371, 0, 65515, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="wall5" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 1, 0, 10, 0, -10, 0, -4.37114e-008, -3, 35, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371, 65531, 65510, 720909, 0, 65515, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, -2, 0 )
+}
+
+[node name="wall6" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 1, 0, 10, 0, -10, 0, -4.37114e-008, -3, 35, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371, 65531, 65510, 720909, 5, 65514, 13, 0, 65515, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="wall7" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 1, 0, 10, 0, -10, 0, -4.37114e-008, -3, 35, 10 )
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray( 0, 23, 655371, 1, 65410, 655370, 6, 65410, 655370, 65527, 65410, 655370, 65532, 65410, 655370, 65531, 65510, 720909, 0, 65515, 1 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="wall8" type="GridMap" parent="wall_and_floor"]
+transform = Transform( -4.37114e-007, 0, 10, 0, 10, 0, -10, 0, -4.37114e-007, -3, 35, 10 )
+mesh_library = ExtResource( 3 )
+data = {
+"cells": PoolIntArray( 6, 65521, 851981, 6, 65526, 1441805, 65526, 65526, 1441805, 6, 65531, 1441805, 65526, 65531, 1441805 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="target" type="Spatial" parent="."]
+
+[node name="Target_Whole" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.00114997, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00114997, 45.8136, 16.6124, 0 )
+
+[node name="Target_Whole2" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.00114997, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00114997, 45.8136, 26.194, 0 )
+
+[node name="Target_Whole3" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.00114997, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00114997, 45.8136, 36.8163, 0 )
+
+[node name="Target_Whole4" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.00114997, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.00114997, 45.8136, 46.9676, 0 )
+
+[node name="Target_Whole5" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.995443, 0, 0.0953551, -0.00262469, 0.999621, 0.0274, -0.0953189, -0.0275254, 0.995066, 22.1704, 16.9958, 47.3319 )
+
+[node name="Target_Whole6" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.995443, 0, 0.0953551, -0.00262469, 0.999621, 0.0274, -0.0953189, -0.0275254, 0.995066, -4.14304, 16.9958, 47.3319 )
+
+[node name="Target_Whole7" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.995443, 0, 0.0953551, -0.00262469, 0.999621, 0.0274, -0.0953189, -0.0275254, 0.995066, -15.5203, 16.9958, 47.3319 )
+
+[node name="Target_Whole14" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.733916, 0.0205367, -0.678929, -0.00262469, 0.999621, 0.0274, 0.679235, -0.0183273, 0.733692, -95.1543, 16.9958, 40.7951 )
+
+[node name="Target_Whole15" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.733916, 0.0205367, -0.678929, -0.00262469, 0.999621, 0.0274, 0.679235, -0.0183273, 0.733692, -102.329, 17.937, 36.2195 )
+
+[node name="Target_Whole16" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.733916, 0.0205367, -0.678929, -0.00262469, 0.999621, 0.0274, 0.679235, -0.0183273, 0.733692, -111.181, 17.937, 29.5815 )
+
+[node name="Target_Whole17" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.0652485, 0.0271705, -0.997499, -0.00262469, 0.999621, 0.0274, 0.997865, 0.00440593, -0.0651524, -128.908, 1.45312, 11.7464 )
+
+[node name="Target_Whole18" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.618308, 0.0199124, -0.785683, -0.00262469, 0.999621, 0.0274, 0.785931, 0.0190038, -0.618021, -120.236, 6.49526, -47.1326 )
+
+[node name="Target_Whole8" parent="target" instance=ExtResource( 4 )]
+transform = Transform( 0.995443, 0, 0.0953551, -0.00262469, 0.999621, 0.0274, -0.0953189, -0.0275254, 0.995066, 6.95848, 16.9958, 47.3319 )
+
+[node name="Target_Whole9" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.992642, 0, -0.121084, 0, 1, 0, 0.121084, 0, -0.992642, 19.1267, 15.6336, -49.6225 )
+
+[node name="Target_Whole10" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.992642, 0, -0.121084, 0, 1, 0, 0.121084, 0, -0.992642, 10.052, 15.6336, -49.6225 )
+
+[node name="Target_Whole11" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.992642, 0, -0.121084, 0, 1, 0, 0.121084, 0, -0.992642, -0.108898, 15.6336, -49.6225 )
+
+[node name="Target_Whole12" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.992642, 0, -0.121084, 0, 1, 0, 0.121084, 0, -0.992642, -8.82801, 15.6336, -49.6225 )
+
+[node name="Target_Whole13" parent="target" instance=ExtResource( 4 )]
+transform = Transform( -0.992642, 0, -0.121084, 0, 1, 0, 0.121084, 0, -0.992642, -19.1853, 15.6336, -49.6225 )
+
+[node name="turret" type="Spatial" parent="."]
+
+[node name="Turret" parent="turret" instance=ExtResource( 5 )]
+transform = Transform( -0.0724342, 0, 0.997373, 0, 1, 0, -0.997373, 0, -0.0724342, 34.7649, 0, -14.4841 )
+
+[node name="Turret2" parent="turret" instance=ExtResource( 5 )]
+transform = Transform( -0.0724342, 0, 0.997373, 0, 1, 0, -0.997373, 0, -0.0724342, 34.7649, 0, 16.8355 )
+
+[node name="Turret3" parent="turret" instance=ExtResource( 5 )]
+transform = Transform( -0.550176, 0, 0.835049, 0, 1, 0, -0.835049, 0, -0.550176, 42.8627, 0, -45.8733 )
+
+[node name="Turret4" parent="turret" instance=ExtResource( 5 )]
+transform = Transform( 0.884183, 0, 0.467141, 0, 1, 0, -0.467141, 0, 0.884183, 40.1143, 0, 42.1739 )
+
+[node name="Turret5" parent="turret" instance=ExtResource( 5 )]
+transform = Transform( 0.560143, 0.0358154, 0.827621, -0.82694, -0.0350424, 0.561198, 0.0491009, -0.998744, 0.00998826, 40.1238, 27.0569, 50.0508 )
+
+[node name="crate" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Crate_Rigid_Body" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 0, 0 )
+
+[node name="Crate_Rigid_Body2" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 0, 3.96317 )
+
+[node name="Crate_Rigid_Body3" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 0, -4.18325 )
+
+[node name="Crate_Rigid_Body4" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 3.95224, -2.0059 )
+
+[node name="Crate_Rigid_Body5" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 3.95224, 2.06389 )
+
+[node name="Crate_Rigid_Body6" parent="crate" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.167, 8.25131, 0.229186 )
+
+[node name="cratewall" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.216, 0, 0 )
+
+[node name="Crate_Rigid_Body" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -30.9614 )
+
+[node name="Crate_Rigid_Body2" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -26.8663 )
+
+[node name="Crate_Rigid_Body3" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -23.0348 )
+
+[node name="Crate_Rigid_Body4" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -19.0384 )
+
+[node name="Crate_Rigid_Body5" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -14.8813 )
+
+[node name="Crate_Rigid_Body6" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -11.4403 )
+
+[node name="Crate_Rigid_Body7" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -7.07136 )
+
+[node name="Crate_Rigid_Body8" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, -2.56856 )
+
+[node name="Crate_Rigid_Body9" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 1.1287 )
+
+[node name="Crate_Rigid_Body10" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 1.1287 )
+
+[node name="Crate_Rigid_Body11" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 5.37888 )
+
+[node name="Crate_Rigid_Body12" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 8.9951 )
+
+[node name="Crate_Rigid_Body13" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 12.5805 )
+
+[node name="Crate_Rigid_Body14" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 16.689 )
+
+[node name="Crate_Rigid_Body15" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 21.0479 )
+
+[node name="Crate_Rigid_Body16" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 25.0479 )
+
+[node name="Crate_Rigid_Body17" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 29.0479 )
+
+[node name="Crate_Rigid_Body18" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 0.148693, 29.0479 )
+
+[node name="Crate_Rigid_Body19" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 26.4201 )
+
+[node name="Crate_Rigid_Body20" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 22.8998 )
+
+[node name="Crate_Rigid_Body21" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 19.4015 )
+
+[node name="Crate_Rigid_Body22" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 15.5689 )
+
+[node name="Crate_Rigid_Body23" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 11.6802 )
+
+[node name="Crate_Rigid_Body24" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 7.68023 )
+
+[node name="Crate_Rigid_Body25" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, 3.25297 )
+
+[node name="Crate_Rigid_Body26" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -0.341742 )
+
+[node name="Crate_Rigid_Body27" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -3.8803 )
+
+[node name="Crate_Rigid_Body28" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -7.4281 )
+
+[node name="Crate_Rigid_Body29" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -11.853 )
+
+[node name="Crate_Rigid_Body30" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -15.853 )
+
+[node name="Crate_Rigid_Body31" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -19.7429 )
+
+[node name="Crate_Rigid_Body32" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -23.8459 )
+
+[node name="Crate_Rigid_Body33" parent="cratewall" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.9726, 3.43396, -27.6758 )
+
+[node name="ammo" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2431, 3.43396, -27.6758 )
+
+[node name="big" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 27.4871 )
+
+[node name="big2" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 36.7012 )
+
+[node name="big3" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 45.6831 )
+
+[node name="big4" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 53.5931 )
+
+[node name="big5" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 61.5569 )
+
+[node name="small4" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 19.6624 )
+kit_size = 1
+
+[node name="small3" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 11.8197 )
+kit_size = 1
+
+[node name="small2" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, 2.61496 )
+kit_size = 1
+
+[node name="small" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 0.0403522, 0, -0.999186, 0, 1, 0, 0.999186, 0, 0.0403522, -49.0372, -1.40375, -6.40164 )
+kit_size = 1
+
+[node name="health" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2431, 3.43396, -27.6758 )
+
+[node name="big" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 8.33753 )
+
+[node name="big2" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 15.6157 )
+
+[node name="big3" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 22.4474 )
+
+[node name="small" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 32.3341 )
+kit_size = 1
+
+[node name="small2" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 44.6637 )
+kit_size = 1
+
+[node name="small3" parent="health" instance=ExtResource( 8 )]
+transform = Transform( 0.0470157, 0, -0.998894, 0, 1, 0, 0.998894, 0, 0.0470157, -62.2043, 0, 61.1691 )
+kit_size = 1
