@@ -163,7 +163,6 @@ func _ready():
 	MOUSE_SENSITIVITY = globals.mouse_sensitivity
 	JOYPAD_SENSITIVITY = globals.joypad_sensitivity
 	
-	create_sound("theme",self.global_transform.origin)
 
 
 func _physics_process(delta):
@@ -199,10 +198,10 @@ func _physics_process(delta):
 
 
 func process_input(delta):
-	print(i)
-	if (i%1600) == 0:
-		globals.play_sound("theme2", false, self.global_transform.origin)
-	i+=1
+	#print(i)
+	#if (i%1600) == 0:
+	#	globals.play_sound("theme2", false, self.global_transform.origin)
+	#i+=1
 	#create_sound("theme",self.global_transform.origin)
 	# ----------------------------------
 	# Walking
